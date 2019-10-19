@@ -17,6 +17,7 @@ public class FooImpl2 implements IFoo {
 
     @Value("${org.ven.testMeArr:Hello,World,One}")
     private String[] valueToBeUsedArr;
+
     @Value("#{systemEnvironment['LOGNAME'] ?: 'Phuntu'}")
     private String valueToBeUsedSpEL;
 
