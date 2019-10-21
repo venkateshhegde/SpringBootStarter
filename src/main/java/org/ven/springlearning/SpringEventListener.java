@@ -3,6 +3,7 @@ package org.ven.springlearning;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 
+//Spring event Consumer / Client
 @Component
 public class SpringEventListener implements ApplicationListener<SpringEvents> {
     @Override

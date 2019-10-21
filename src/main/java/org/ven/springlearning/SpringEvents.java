@@ -2,6 +2,7 @@ package org.ven.springlearning;
 
 import org.springframework.context.ApplicationEvent;
 
+//Spring event
 public class SpringEvents extends ApplicationEvent {
     private String message;
 

@@ -5,25 +5,22 @@ import org.apache.catalina.connector.Connector;
 import org.apache.tomcat.util.descriptor.web.SecurityCollection;
 import org.apache.tomcat.util.descriptor.web.SecurityConstraint;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.web.EmbeddedServletContainerAutoConfiguration;
-import org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory;
 import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
+//Spring Boot App
 @SpringBootApplication ()
+//RESTFul services
 @RestController
 public class Main implements CommandLineRunner {
 
 
+    //HTTPS Support
     @Bean
     public EmbeddedServletContainerFactory servletContainer() {
         TomcatEmbeddedServletContainerFactory tomcat = new TomcatEmbeddedServletContainerFactory() {
@@ -42,6 +39,7 @@ public class Main implements CommandLineRunner {
         return tomcat;
     }
 
+    //HTTPS Support
     private Connector initiateHttpConnector() {
         Connector connector = new Connector("org.apache.coyote.http11.Http11NioProtocol");
         connector.setScheme("http");
@@ -52,17 +50,18 @@ public class Main implements CommandLineRunner {
         return connector;
     }
 
-
+//Dependency Injection
     @Autowired
     private FirstSpring fs;
 
     public static void main(String[] args) {
         System.out.println("ALL GOOD!");
-//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+//SpringBoot app
         SpringApplication.run(Main.class, args);
 
     }
 
+    //SpringBoot App
     @Override
     public void run(String... args)
     {
@@ -71,7 +70,11 @@ public class Main implements CommandLineRunner {
 
     @RequestMapping("/")
     public String  defaultPage() {
-        return "<h1>HELLO GREAT WORLD!</h1><a href src=\"https://github.com/guard/guard-livereload\"></a>";
+
+        return "<h1>HELLO GREAT WORLD!</h1>" +
+                //Live reload support on web pages
+                "<a href src=\"https://github.com/guard/guard-livereload\"></a>" +
+                "";
     }
 }
 

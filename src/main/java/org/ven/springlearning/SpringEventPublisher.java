@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Component;
 
+//Spring event Producer / Publisher
 @Component
 public class SpringEventPublisher {
     @Autowired

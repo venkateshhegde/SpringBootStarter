@@ -8,16 +8,19 @@ import java.util.Arrays;
 @Component
 public class FooImpl2 implements IFoo {
 
+    //Spring properties with default integer
     @Value("${org.ven.testMe: 210}")
     private int valueToBeUsed;
 
-
+    //Spring properties with default Strings
     @Value("${org.ven.testMeStr:Hello World\n\n}")
     private String valueToBeUsedStr;
 
+    //Spring properties with default Arrays
     @Value("${org.ven.testMeArr:Hello,World,One}")
     private String[] valueToBeUsedArr;
 
+    //Spring properties with default SpEL
     @Value("#{systemEnvironment['LOGNAME'] ?: 'Phuntu'}")
     private String valueToBeUsedSpEL;
 
