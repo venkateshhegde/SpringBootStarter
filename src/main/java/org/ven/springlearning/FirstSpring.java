@@ -1,6 +1,8 @@
 package org.ven.springlearning;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
@@ -9,7 +11,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 
+//Autowired class
 @Component
+//Concept Spring bean Scope
+@Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)
 public class FirstSpring {
 
     //Dependency Injection
@@ -26,7 +31,7 @@ public class FirstSpring {
     public void showBarAccess()
     {
         //Spring Event PUB SUB call
-        pub.doStuffAndPublishAnEvent("hello");
+        pub.doStuffAndPublishAnEvent("hello=>" + hashCode());
 
         System.out.println(myFoo.getBar());
 

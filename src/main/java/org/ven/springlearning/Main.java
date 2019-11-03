@@ -49,7 +49,13 @@ public class Main implements CommandLineRunner {
 
 //Dependency Injection
     @Autowired
-    private FirstSpring fs;
+    private FirstSpring fs0;
+
+    @Autowired
+    private FirstSpring fs1;
+
+    @Autowired
+    private SecondBean secondBean;
 
     public static void main(String[] args) {
         System.out.println("ALL GOOD!");
@@ -62,7 +68,7 @@ public class Main implements CommandLineRunner {
     @Override
     public void run(String... args)
     {
-        fs.showBarAccess();fs.showBarAccess();fs.showBarAccess();
+        fs1.showBarAccess();fs0.showBarAccess();fs1.showBarAccess();
     }
 
     @RequestMapping(value="/{firstName}/{lastName}",method = RequestMethod.GET)
